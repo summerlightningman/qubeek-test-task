@@ -7,7 +7,8 @@
 
 <script lang="ts">
   import { RouterLink, RouterView } from 'vue-router'
-  import {RouteName} from "../routing/route-name.enum.ts";
+
+  import { RouteName } from '../routing/route-name.enum.ts'
 
   export default {
     name: 'Preview',
