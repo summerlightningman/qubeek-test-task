@@ -1,9 +1,17 @@
 <template>
-
+ <router-view/>
 </template>
 
-<script setup lang="ts">
+<script lang="ts">
+  import { RouterView } from 'vue-router'
 
+  export default {
+    name: 'App',
+
+    components: {
+      RouterView
+    },
+  }
 </script>
 
 <style scoped>
