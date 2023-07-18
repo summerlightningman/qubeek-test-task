@@ -22,8 +22,8 @@
   export default {
     name: 'Index',
     setup() {
-      const uploadsStore = useUploadsStore()
-      return { uploadsStore }
+      const { addFile } = useUploadsStore()
+      return { addFile }
     },
     data: () => ({
         isDrag: false
@@ -40,7 +40,7 @@
 
         if (!file) return
 
-        this.uploadsStore.addFile(file)
+        this.addFile(file)
       }
     },
     components: {
