@@ -1,23 +1,45 @@
 <template>
-  <h1>Hello world!</h1>
+  <form class="flex justify-center items-center">
+    <div
+        class="px-20 h-10 bg-placeholder-gray text-placeholder-text"
+        @dragenter.prevent="isDrag = true"
+        @dragover.prevent="isDrag = true"
+        @drop.prevent="handleDrop"
+        @dragleave.prevent="isDrag = false"
+    >
+      Перетащите файлы в поле или нажмите на него
+    </div>
+  </form>
   <router-link :to="{ name: RouteName.PREVIEW }">
     Go to preview
   </router-link>
 </template>
-<script setup lang="ts">
-  import {useUploadsStore} from '../store/uploads.ts'
-
-  const store = useUploadsStore()
-</script>
 <script lang="ts">
   import { RouterLink, RouterView } from 'vue-router'
   import { RouteName } from '../routing/route-name.enum.ts'
+  import {useUploadsStore} from "../store/uploads.ts";
 
   export default {
     name: 'Index',
+    setup() {
+      const uploadsStore = useUploadsStore()
+      return { uploadsStore }
+    },
+    data: () => ({
+        isDrag: false
+    }),
     computed: {
       RouteName() {
         return RouteName
+      }
+    },
+    methods: {
+      handleDrop(event: DragEvent) {
+        this.isDrag = false
+
+        const file = event.dataTransfer?.files?.[0]
+        if (!file) return
+        this.uploadsStore.addFile(file)
       }
     },
     components: {
@@ -26,6 +48,3 @@
     },
   }
 </script>
-
-<style scoped>
-</style>

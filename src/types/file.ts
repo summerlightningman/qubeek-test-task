@@ -1,9 +1,9 @@
-export interface File {
-    filename: string
+export interface FileItem {
+    name: string
     extension: string
     size: number
 }
 
 export interface UploadsState {
-    files: File[]
+    files: FileItem[]
 }

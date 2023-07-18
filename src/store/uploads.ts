@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 
-import { File, UploadsState } from '../types/file.ts'
+import { UploadsState } from '../types/file.ts'
 
 export const useUploadsStore = defineStore('uploads', {
     state: (): UploadsState => ({
@@ -8,7 +8,11 @@ export const useUploadsStore = defineStore('uploads', {
     }),
     actions: {
         addFile(file: File) {
-            this.files.push(file)
+            this.files.push({
+                name: file.name,
+                extension: file.name.split('.').at(-1),
+                size: file.size
+            })
         }
     }
 })
