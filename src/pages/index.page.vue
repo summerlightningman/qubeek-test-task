@@ -17,7 +17,7 @@
 <script lang="ts">
   import { RouterLink, RouterView } from 'vue-router'
   import { RouteName } from '../routing/route-name.enum.ts'
-  import {useUploadsStore} from "../store/uploads.ts";
+  import { useUploadsStore } from "../store/uploads.ts"
 
   export default {
     name: 'Index',
@@ -36,9 +36,10 @@
     methods: {
       handleDrop(event: DragEvent) {
         this.isDrag = false
-
         const file = event.dataTransfer?.files?.[0]
+
         if (!file) return
+
         this.uploadsStore.addFile(file)
       }
     },
