@@ -20,6 +20,7 @@
       </p>
       <input
           type="file"
+          multiple
           class="hidden"
           ref="fileInput"
           :value="filePath"
@@ -53,26 +54,25 @@
       RouteName() {
         return RouteName
       }
+
     },
     methods: {
       handleDrop(event: DragEvent) {
         this.isDrag = false
-        const file = event.dataTransfer?.files?.[0]
 
-        if (!file) return
+        const fileList = event.dataTransfer?.files
+        if (!fileList?.length) return
 
-        this.uploadsStore.addFile(file)
+        [...fileList].forEach(this.uploadsStore.addFile)
       },
       handleFileInputChange(e: Event) {
-        const file = e.currentTarget?.files?.[0]
-        if (!file) return
+        const fileList = e.currentTarget?.files
+        if (!fileList.legth) return
 
-        this.uploadsStore.addFile(file)
+        [...fileList].forEach(this.uploadsStore.addFile)
       },
       openFile() {
-        const { fileInput } = this.$refs
-        if (!fileInput) return
-        fileInput.click()
+        this.$refs?.fileInput?.click()
       }
     },
     components: {
