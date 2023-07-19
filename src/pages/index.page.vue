@@ -1,18 +1,27 @@
 <template>
-  <form class="flex justify-center items-center">
+  <form class="h-screen flex justify-center flex-col items-center" ref="fileForm">
     <div
-        class="px-20 h-10 bg-placeholder-gray text-placeholder-text"
+        class="px-48 h-48 flex flex-col justify-center bg-placeholder-gray text-placeholder-text"
+        @click="openFile"
         @dragenter.prevent="isDrag = true"
         @dragover.prevent="isDrag = true"
         @drop.prevent="handleDrop"
         @dragleave.prevent="isDrag = false"
     >
       Перетащите файлы в поле или нажмите на него
+      <input
+          type="file"
+          class="hidden"
+          ref="fileInput"
+      />
     </div>
+    <router-link
+        :to="{ name: RouteName.PREVIEW }"
+        class="mt-3.5"
+    >
+      Go to preview
+    </router-link>
   </form>
-  <router-link :to="{ name: RouteName.PREVIEW }">
-    Go to preview
-  </router-link>
 </template>
 <script lang="ts">
   import { RouterLink, RouterView } from 'vue-router'
@@ -41,6 +50,10 @@
         if (!file) return
 
         this.uploadsStore.addFile(file)
+      },
+      openFile() {
+        if (!this.$refs.fileInput) return
+        this.$refs.fileInput.click()
       }
     },
     components: {
