@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 
-import { UploadsState } from '../types/file'
+import { FileItem, UploadsState } from '../types/file'
 
 export const useUploadsStore = defineStore('uploads', {
     state: (): UploadsState => ({
@@ -14,6 +14,9 @@ export const useUploadsStore = defineStore('uploads', {
                 size: file.size,
                 added: +new Date()
             })
+        },
+        deleteFile(file: FileItem) {
+            this.files = this.files.filter(item => item !== file)
         }
     }
 })

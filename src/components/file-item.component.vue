@@ -28,6 +28,7 @@
   import { defineComponent, PropType } from 'vue'
   import { FileItem } from '../types/file'
   import { formatFilesize } from '../utils/file'
+  import { useUploadsStore } from '../store/uploads'
 
   export default defineComponent({
     name: 'file-item',
@@ -37,9 +38,13 @@
         required: true
       }
     },
+    setup() {
+      const uploadsStore = useUploadsStore()
+      return { uploadsStore }
+    },
     methods: {
-      onDelete(args: any){
-          console.log(args)
+      onDelete(file: FileItem) {
+        this.uploadsStore.deleteFile(file)
       }
     },
     computed: {

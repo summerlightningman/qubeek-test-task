@@ -67,12 +67,14 @@
 
         [...fileList].forEach(this.uploadsStore.addFile)
       },
+
       handleFileInputChange(e: Event) {
         const fileList = e.currentTarget?.files
         if (!fileList.legth) return
 
         [...fileList].forEach(this.uploadsStore.addFile)
       },
+
       openFile() {
         this.$refs?.fileInput?.click()
       }
