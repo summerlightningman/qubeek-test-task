@@ -1,14 +1,23 @@
 <template>
   <main class="h-screen flex justify-center flex-col items-center" ref="fileForm">
     <div
-        class="px-48 h-48 flex flex-col justify-center bg-placeholder-gray text-placeholder-text"
+        class="w-3/5 h-48 flex flex-col justify-center bg-placeholder-gray text-placeholder-text"
+        :class="{
+          'bg-placeholder-gray-active': isDrag,
+        }"
         @click="openFile"
         @dragenter.prevent="isDrag = true"
         @dragover.prevent="isDrag = true"
         @drop.prevent="handleDrop"
         @dragleave.prevent="isDrag = false"
     >
-      Перетащите файлы в поле или нажмите на него
+      <p class="text-center">
+        {{
+          !isDrag
+            ? 'Перетащите файлы в поле или нажмите на него'
+            : 'Отпустите чтобы опубликовать файл'
+        }}
+      </p>
       <input
           type="file"
           class="hidden"
