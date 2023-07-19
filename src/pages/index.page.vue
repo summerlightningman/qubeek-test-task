@@ -1,7 +1,7 @@
 <template>
   <main class="h-screen flex justify-center flex-col items-center" ref="fileForm">
     <div
-        class="w-3/5 h-48 flex flex-col justify-center bg-placeholder-gray text-placeholder-text"
+        class="w-3/5 h-48 flex flex-col justify-center bg-placeholder-gray text-placeholder-text cursor-pointer"
         :class="{
           'bg-placeholder-gray-active': isDrag,
         }"
