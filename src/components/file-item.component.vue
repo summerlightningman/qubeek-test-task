@@ -1,14 +1,21 @@
 <template>
   <li
-      class="list-none grid grid-rows-2"
+      class="pr-3 list-none grid grid-rows-2"
       :style="{ gridTemplateColumns: '3.5rem auto 2rem' }"
   >
     <img
         class="w-14 h-14 row-start-1 row-end-3"
-        src="../assets/file.svg"
+        src="../assets/file-24.svg"
         alt="FILE"
     />
     <span class="truncate font-semibold">{{ file.name }}</span>
+    <button>
+      <img
+          class="text-red-600"
+          src="../assets/delete-16.svg"
+          alt="X"
+      >
+    </button>
     <span>{{ size }}</span>
   </li>
 </template>
