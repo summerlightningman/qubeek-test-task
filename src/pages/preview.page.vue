@@ -1,16 +1,18 @@
 <template>
-  <ul class="px-20 pt-5">
-    <file-item
-        v-for="file in uploadsStore.files"
-        :file="file"
-    />
-  </ul>
-  <router-link
-      :to="{ name: RouteName.INDEX }"
-      class="mt-3.5 px-5 py-2.5 bg-violet-700 hover:bg-violet-600 text-white"
-  >
-    {{ t('navigation.toIndex') }}
-  </router-link>
+  <main class="h-screen flex flex-col justify-center items-center">
+    <ul class="w-6/12 h-5/6 overflow-auto">
+      <file-item
+          v-for="file in uploadsStore.files"
+          :file="file"
+      />
+    </ul>
+    <router-link
+        :to="{ name: RouteName.INDEX }"
+        class="mt-3.5 px-5 py-2.5 bg-violet-700 hover:bg-violet-600 text-white"
+    >
+      {{ t('navigation.toIndex') }}
+    </router-link>
+  </main>
 </template>
 
 <script lang="ts">
