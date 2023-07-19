@@ -1,0 +1,10 @@
+{
+  "form": {
+    "dragFileOrClick": "Перетащите файлы в поле или нажмите на него",
+    "dropFileToUpload": "Отпустите чтобы опубликовать файл"
+  },
+  "navigation": {
+    "toPreview": "Перейти к Preview",
+    "toIndex": "На главную"
+  }
+}

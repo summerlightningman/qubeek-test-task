@@ -1,0 +1,10 @@
+{
+  "form": {
+    "dragFileOrClick": "Drag files to field or click on it",
+    "dropFileToUpload": "Drop file to upload it"
+  },
+  "navigation": {
+    "toPreview": "Go to Preview",
+    "toIndex": "Back to home"
+  }
+}

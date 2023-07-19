@@ -15,7 +15,7 @@
 
 <script lang="ts">
   import { defineComponent, PropType } from 'vue'
-  import { FileItem } from '../types/file.ts'
+  import { FileItem } from '../types/file'
   import { formatFilesize } from '../utils/file'
 
   export default defineComponent({

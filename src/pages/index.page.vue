@@ -14,8 +14,8 @@
       <p class="text-center">
         {{
           !isDrag
-            ? 'Перетащите файлы в поле или нажмите на него'
-            : 'Отпустите чтобы опубликовать файл'
+            ? t('form.dragFileOrClick')
+            : t('form.dropFileToUpload')
         }}
       </p>
       <input
@@ -31,20 +31,23 @@
         :to="{ name: RouteName.PREVIEW }"
         class="mt-3.5 px-5 py-2.5 bg-violet-700 hover:bg-violet-600 text-white"
     >
-      Go to preview
+      {{ t('navigation.toPreview') }}
     </router-link>
   </main>
 </template>
 <script lang="ts">
   import { RouterLink, RouterView } from 'vue-router'
-  import { RouteName } from '../routing/route-name.enum.ts'
-  import { useUploadsStore } from "../store/uploads.ts"
+  import { RouteName } from '../routing/route-name.enum'
+  import { useUploadsStore } from '../store/uploads'
+  import {useI18n} from 'vue-i18n'
 
   export default {
     name: 'Index',
     setup() {
       const uploadsStore = useUploadsStore()
-      return { uploadsStore }
+      const { t } = useI18n()
+
+      return { uploadsStore, t }
     },
     data: () => ({
         isDrag: false,
@@ -54,7 +57,6 @@
       RouteName() {
         return RouteName
       }
-
     },
     methods: {
       handleDrop(event: DragEvent) {

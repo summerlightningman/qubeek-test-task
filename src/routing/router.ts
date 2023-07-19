@@ -1,6 +1,6 @@
 import { createRouter, RouteRecordRaw, createWebHashHistory } from 'vue-router'
-import {RoutePath} from "./route-path.enum.ts"
-import {RouteName} from "./route-name.enum.ts"
+import {RoutePath} from "./route-path.enum"
+import {RouteName} from "./route-name.enum"
 import Preview from "../pages/preview.page.vue"
 import Index from "../pages/index.page.vue"
 
