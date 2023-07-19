@@ -13,6 +13,7 @@
       <file-item
           v-for="file in uploadsStore.files"
           :file="file"
+          :key="file.name + file.size + file.added"
       />
     </ul>
     <router-link

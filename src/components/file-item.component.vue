@@ -8,8 +8,12 @@
         src="../assets/file-24.svg"
         alt="FILE"
     />
-    <span class="truncate font-semibold">{{ file.name }}</span>
-    <button>
+    <span class="truncate font-semibold">
+      {{ file.name }}
+    </span>
+    <button
+        @click="onDelete(file)"
+    >
       <img
           class="text-red-600"
           src="../assets/delete-16.svg"
@@ -31,6 +35,11 @@
       file: {
         type: Object as PropType<FileItem>,
         required: true
+      }
+    },
+    methods: {
+      onDelete(args: any){
+          console.log(args)
       }
     },
     computed: {
