@@ -5,7 +5,10 @@
         :file="file"
     />
   </ul>
-  <router-link :to="{ name: RouteName.INDEX }">
+  <router-link
+      :to="{ name: RouteName.INDEX }"
+      class="mt-3.5 px-5 py-2.5 bg-violet-700 hover:bg-violet-600 text-white"
+  >
     Go to index
   </router-link>
 </template>
