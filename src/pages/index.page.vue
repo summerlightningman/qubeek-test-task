@@ -1,5 +1,5 @@
 <template>
-  <form class="h-screen flex justify-center flex-col items-center" ref="fileForm">
+  <main class="h-screen flex justify-center flex-col items-center" ref="fileForm">
     <div
         class="px-48 h-48 flex flex-col justify-center bg-placeholder-gray text-placeholder-text"
         @click="openFile"
@@ -13,6 +13,8 @@
           type="file"
           class="hidden"
           ref="fileInput"
+          :value="filePath"
+          @change="handleFileInputChange"
       />
     </div>
     <router-link
@@ -21,7 +23,7 @@
     >
       Go to preview
     </router-link>
-  </form>
+  </main>
 </template>
 <script lang="ts">
   import { RouterLink, RouterView } from 'vue-router'
@@ -35,7 +37,8 @@
       return { uploadsStore }
     },
     data: () => ({
-        isDrag: false
+        isDrag: false,
+        filePath: ''
     }),
     computed: {
       RouteName() {
@@ -51,9 +54,16 @@
 
         this.uploadsStore.addFile(file)
       },
+      handleFileInputChange(e: Event) {
+        const file = e.currentTarget?.files?.[0]
+        if (!file) return
+
+        this.uploadsStore.addFile(file)
+      },
       openFile() {
-        if (!this.$refs.fileInput) return
-        this.$refs.fileInput.click()
+        const { fileInput } = this.$refs
+        if (!fileInput) return
+        fileInput.click()
       }
     },
     components: {
