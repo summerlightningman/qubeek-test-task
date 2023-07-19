@@ -2,7 +2,7 @@
   <main class="h-screen flex flex-col justify-center items-center">
     <p
         v-if="!uploadsStore.files.length"
-        class="text-3xl font-bold text-blueGray-400"
+        class="text-3xl font-bold text-blue-300"
     >
       {{ t('preview.listIsEmpty') }}
     </p>
