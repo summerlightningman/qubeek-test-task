@@ -1,6 +1,15 @@
 <template>
   <main class="h-screen flex flex-col justify-center items-center">
-    <ul class="w-6/12 h-5/6 overflow-auto">
+    <p
+        v-if="!uploadsStore.files.length"
+        class="text-3xl font-bold text-blueGray-400"
+    >
+      {{ t('preview.listIsEmpty') }}
+    </p>
+    <ul
+        v-else
+        class="w-6/12 h-5/6 overflow-auto"
+    >
       <file-item
           v-for="file in uploadsStore.files"
           :file="file"

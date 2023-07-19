@@ -14,8 +14,8 @@
       <p class="text-center">
         {{
           !isDrag
-            ? t('form.dragFileOrClick')
-            : t('form.dropFileToUpload')
+            ? t('index.fileForm.dragFileOrClick')
+            : t('index.fileForm.dropFileToUpload')
         }}
       </p>
       <input

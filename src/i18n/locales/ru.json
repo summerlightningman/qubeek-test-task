@@ -1,7 +1,12 @@
 {
-  "form": {
-    "dragFileOrClick": "Перетащите файлы в поле или нажмите на него",
-    "dropFileToUpload": "Отпустите чтобы опубликовать файл"
+  "index": {
+    "fileForm": {
+      "dragFileOrClick": "Перетащите файлы в поле или нажмите на него",
+      "dropFileToUpload": "Отпустите чтобы опубликовать файл"
+    }
+  },
+  "preview": {
+    "listIsEmpty": "Список файлов пуст. Опубликуйте файлы на главной странице."
   },
   "navigation": {
     "toPreview": "Перейти к Preview",

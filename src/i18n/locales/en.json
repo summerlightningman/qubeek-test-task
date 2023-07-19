@@ -3,6 +3,9 @@
     "dragFileOrClick": "Drag files to field or click on it",
     "dropFileToUpload": "Drop file to upload it"
   },
+  "preview": {
+    "listIsEmpty": "File list is empty. Upload them in home page."
+  },
   "navigation": {
     "toPreview": "Go to Preview",
     "toIndex": "Back to home"

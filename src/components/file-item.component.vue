@@ -1,7 +1,7 @@
 <template>
   <li
       class="list-none grid grid-rows-2"
-      :style="{ gridTemplateColumns: '3.5rem auto' }"
+      :style="{ gridTemplateColumns: '3.5rem auto 2rem' }"
   >
     <img
         class="w-14 h-14 row-start-1 row-end-3"
