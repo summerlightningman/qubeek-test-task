@@ -77,7 +77,8 @@
 
       openFile() {
         this.$refs?.fileInput?.click()
-      }
+      },
+
     },
     components: {
       RouterLink,
