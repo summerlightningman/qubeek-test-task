@@ -70,7 +70,7 @@
 
       handleFileInputChange(e: Event) {
         const fileList = e.currentTarget?.files
-        if (!fileList.legth) return
+        if (!fileList.length) return
 
         [...fileList].forEach(this.uploadsStore.addFile)
       },
